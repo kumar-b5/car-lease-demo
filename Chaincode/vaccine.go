@@ -246,7 +246,7 @@ func (t *SimpleChaincode) retrieve_temp(stub *shim.ChaincodeStub, v5cID string) 
 // save_changes - Writes to the ledger the Vehicle struct passed in a JSON format. Uses the shim file's
 //				  method 'PutState'.
 //==============================================================================================================================
-func (t *SimpleChaincode) save_changes(stub *shim.ChaincodeStub, v Vehicle) (bool, error)
+func (t *SimpleChaincode) save_changes(stub *shim.ChaincodeStub, v Vehicle) (bool, error) {
 	bytes, err := json.Marshal(v)
 
 																if err != nil { fmt.Printf("SAVE_CHANGES: Error converting vehicle record: %s", err); return false, errors.New("Error converting vehicle record") }
