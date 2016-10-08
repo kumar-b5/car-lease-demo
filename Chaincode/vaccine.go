@@ -49,7 +49,8 @@ type  SimpleChaincode struct {
 //			  that element when reading a JSON object into the struct e.g. JSON make -> Struct Make.
 //==============================================================================================================================
 type Temperature struct {
-	test string
+	TempTime				string `json:"temptime"`
+	Temperature			string `json:"temperature"`
 }
 
 
@@ -64,8 +65,7 @@ type Vehicle struct {
 	Colour          string `json:"colour"`  //Date
 	V5cID           string `json:"v5cID"`  //RFID
 	LeaseContractID string `json:"leaseContractID"`  //Batch-Serial No
-	TempTime				string `json:"temptime"`
-	Temperature			string `json:"temperature"`
+	Temps []Temperature
 }
 
 
@@ -751,6 +751,8 @@ func (t *SimpleChaincode) record_temp(stub *shim.ChaincodeStub, v Vehicle, calle
 
 	if err != nil { return nil, errors.New("GET_VEHICLE_DETAILS: Invalid vehicle object") }
 
+	newTemp := Temperature{TempTime: args[0],Temperature: args[1]}
+	v.Temps = append(v.Temps,newTemp)
 
 	v.TempTime = args[0]
 	v.Temperature = args[1]
