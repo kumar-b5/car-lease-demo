@@ -753,8 +753,8 @@ func (t *SimpleChaincode) record_temp(stub *shim.ChaincodeStub, v Vehicle, calle
 	if err != nil { return nil, errors.New("GET_VEHICLE_DETAILS: Invalid vehicle object") }
 
 	getpos := len(v.Temp)
-	v.Temp.Temptime[getpos+1] := args[0]
-	v.Temp.Temperature[getpos+1] := args[1]
+	v.Temp.Temptime[getpos+1] = args[0]
+	v.Temp.Temperature[getpos+1] = args[1]
 
 
              //Log the Temperature to the Vaccine
