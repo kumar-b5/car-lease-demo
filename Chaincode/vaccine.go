@@ -754,9 +754,6 @@ func (t *SimpleChaincode) record_temp(stub *shim.ChaincodeStub, v Vehicle, calle
 	newTemp := Temperature{TempTime: args[0],Temperature: args[1]}
 	v.Temps = append(v.Temps,newTemp)
 
-	v.TempTime = args[0]
-	v.Temperature = args[1]
-
 
              //Log the Temperature to the Vaccine
 	} else {
