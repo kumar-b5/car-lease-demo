@@ -49,8 +49,8 @@ type  SimpleChaincode struct {
 //			  that element when reading a JSON object into the struct e.g. JSON make -> Struct Make.
 //==============================================================================================================================
 type Temperature struct {
-	TempTime				time.Time 'json:"temptime"'
-	Temperature			string 'json:"Temperature"'
+	TempTime	time.Time `json:"temptime"`
+	Temperature	string `json:"Temperature"`
 }
 
 
@@ -65,7 +65,7 @@ type Vehicle struct {
 	Colour          string `json:"colour"`  //Date
 	V5cID           string `json:"v5cID"`  //RFID
 	LeaseContractID string `json:"leaseContractID"`  //Batch-Serial No
-	Temp [] Temperatute
+	Temp []Temperatute
 }
 
 
