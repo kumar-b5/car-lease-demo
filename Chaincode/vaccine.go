@@ -66,7 +66,7 @@ type Vehicle struct {
 	Colour          string `json:"colour"`  //Date
 	V5cID           string `json:"v5cID"`  //RFID
 	LeaseContractID string `json:"leaseContractID"`  //Batch-Serial No
-	Temp []Temperatute
+	Temp []Temperature
 }
 
 
