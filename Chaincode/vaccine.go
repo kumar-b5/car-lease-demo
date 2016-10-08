@@ -246,8 +246,7 @@ func (t *SimpleChaincode) retrieve_temp(stub *shim.ChaincodeStub, v5cID string) 
 // save_changes - Writes to the ledger the Vehicle struct passed in a JSON format. Uses the shim file's
 //				  method 'PutState'.
 //==============================================================================================================================
-func (t *SimpleChaincode) save_changes(stub *shim.ChaincodeStub, v Vehicle) (bool, error) {
-
+func (t *SimpleChaincode) save_changes(stub *shim.ChaincodeStub, v Vehicle) (bool, error)
 	bytes, err := json.Marshal(v)
 
 																if err != nil { fmt.Printf("SAVE_CHANGES: Error converting vehicle record: %s", err); return false, errors.New("Error converting vehicle record") }
@@ -256,9 +255,9 @@ func (t *SimpleChaincode) save_changes(stub *shim.ChaincodeStub, v Vehicle) (boo
 
 																if err != nil { fmt.Printf("SAVE_CHANGES: Error storing vehicle record: %s", err); return false, errors.New("Error storing vehicle record") }
 
-															}
-	return true, nil
 
+	return true, nil
+}
 //==============================================================================================================================
 //	 Router Functions
 //==============================================================================================================================
@@ -721,7 +720,7 @@ func (t *SimpleChaincode) update_model(stub *shim.ChaincodeStub, v Vehicle, call
 }
 
 //=================================================================================================================================
-///	 scrap_vehicle
+//	 scrap_vehicle
 //=================================================================================================================================
 func (t *SimpleChaincode) scrap_vehicle(stub *shim.ChaincodeStub, v Vehicle, caller string, caller_affiliation int) ([]byte, error) {
 
@@ -753,9 +752,10 @@ func (t *SimpleChaincode) record_temp(stub *shim.ChaincodeStub, v Vehicle, calle
 	if err != nil { return nil, errors.New("GET_VEHICLE_DETAILS: Invalid vehicle object") }
 
 	getpos = len(v.Temp)
-	//v.Temp.Temptime[getpos+1] = args[0]
+	v.Temp.Temptime[getpos+1] = args[0]
 	v.Temp.Temperature[getpos+1] = args[1]
-	//_, err := t.save_changes(stub, v)
+
+	_, err := t.save_changes(stub, v)
 
              //Log the Temperature to the Vaccine
 	} else {
