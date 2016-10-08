@@ -721,7 +721,7 @@ func (t *SimpleChaincode) update_model(stub *shim.ChaincodeStub, v Vehicle, call
 }
 
 //=================================================================================================================================
-//	 scrap_vehicle
+///	 scrap_vehicle
 //=================================================================================================================================
 func (t *SimpleChaincode) scrap_vehicle(stub *shim.ChaincodeStub, v Vehicle, caller string, caller_affiliation int) ([]byte, error) {
 
@@ -753,7 +753,7 @@ func (t *SimpleChaincode) record_temp(stub *shim.ChaincodeStub, v Vehicle, calle
 	if err != nil { return nil, errors.New("GET_VEHICLE_DETAILS: Invalid vehicle object") }
 
 	getpos = len(v.Temp)
-	v.Temp.Temptime[getpos+1] = args[0]
+	//v.Temp.Temptime[getpos+1] = args[0]
 	v.Temp.Temperature[getpos+1] = args[1]
 	_, err := t.save_changes(stub, v)
 
