@@ -747,7 +747,7 @@ func (t *SimpleChaincode) record_temp(stub *shim.ChaincodeStub, v Vehicle, calle
 
 	if		len(args) >=2 	{
 
-	 bytes, err := json.Marshal(v)
+	 _, err := json.Marshal(v)
 
 	if err != nil { return nil, errors.New("GET_VEHICLE_DETAILS: Invalid vehicle object") }
 
