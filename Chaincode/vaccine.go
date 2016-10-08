@@ -50,8 +50,7 @@ type  SimpleChaincode struct {
 //			  that element when reading a JSON object into the struct e.g. JSON make -> Struct Make.
 //==============================================================================================================================
 type Temperature struct {
-	TempTime	time.Time `json:"temptime"`
-	Temperature	string `json:"Temperature"`
+	test string
 }
 
 
@@ -66,7 +65,8 @@ type Vehicle struct {
 	Colour          string `json:"colour"`  //Date
 	V5cID           string `json:"v5cID"`  //RFID
 	LeaseContractID string `json:"leaseContractID"`  //Batch-Serial No
-	Temp []Temperature
+	TempTime	string `json:"temptime"`
+	Temperature	string `json:"temperature"`
 }
 
 
@@ -752,9 +752,9 @@ func (t *SimpleChaincode) record_temp(stub *shim.ChaincodeStub, v Vehicle, calle
 
 	if err != nil { return nil, errors.New("GET_VEHICLE_DETAILS: Invalid vehicle object") }
 
-	getpos := len(v.Temp)
-	v.Temp.Temptime[getpos+1] = args[0]
-	v.Temp.Temperature[getpos+1] = args[1]
+
+	v.Temptime = args[0]
+	v.Temperature = args[1]
 
 
              //Log the Temperature to the Vaccine
