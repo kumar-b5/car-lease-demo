@@ -64,8 +64,8 @@ type Vehicle struct {
 	Colour          string `json:"colour"`  //Date
 	V5cID           string `json:"v5cID"`  //RFID
 	LeaseContractID string `json:"leaseContractID"`  //Batch-Serial No
-	TempTime	string `json:"temptime"`
-	Temperature	string `json:"temperature"`
+	TempTime				string `json:"temptime"`
+	Temperature			string `json:"temperature"`
 }
 
 
@@ -752,7 +752,7 @@ func (t *SimpleChaincode) record_temp(stub *shim.ChaincodeStub, v Vehicle, calle
 	if err != nil { return nil, errors.New("GET_VEHICLE_DETAILS: Invalid vehicle object") }
 
 
-	v.Temptime = args[0]
+	v.TempTime = args[0]
 	v.Temperature = args[1]
 
 
